@@ -7,7 +7,6 @@ import java.util.Optional;
 
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
-import org.jnp.server.NamingBeanImpl;
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -17,6 +16,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.arjuna.ats.jta.utils.JNDIManager;
+
+import de.elnarion.jndi.server.NamingBeanImpl;
 
 public class WeldInitAllExtension implements BeforeAllCallback, AfterAllCallback {
 

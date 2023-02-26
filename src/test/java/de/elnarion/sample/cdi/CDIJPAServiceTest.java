@@ -13,7 +13,6 @@ import javax.transaction.UserTransaction;
 
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
-import org.jnp.server.NamingBeanImpl;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,6 +22,7 @@ import org.slf4j.LoggerFactory;
 
 import com.arjuna.ats.jta.utils.JNDIManager;
 
+import de.elnarion.jndi.server.NamingBeanImpl;
 import de.elnarion.sample.cdi.domain.Gift;
 import de.elnarion.sample.cdi.support.TransactionalConnectionProvider;
 

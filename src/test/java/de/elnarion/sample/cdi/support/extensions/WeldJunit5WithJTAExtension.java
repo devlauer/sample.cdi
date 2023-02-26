@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.Optional;
 
 import org.jboss.weld.junit5.WeldJunit5Extension;
-import org.jnp.server.NamingBeanImpl;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ExtensionContext.Namespace;
 import org.junit.jupiter.api.extension.ExtensionContext.Store;
@@ -14,6 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.arjuna.ats.jta.utils.JNDIManager;
+
+import de.elnarion.jndi.server.NamingBeanImpl;
 
 public class WeldJunit5WithJTAExtension extends WeldJunit5Extension{
 

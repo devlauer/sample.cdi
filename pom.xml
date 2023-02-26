@@ -61,15 +61,9 @@
 			<version>7.6.1.Final</version>
 		</dependency>
 		<dependency>
-			<groupId>org.jboss.naming</groupId>
-			<artifactId>jnpserver</artifactId>
-			<version>5.0.3.GA</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.jboss.logging</groupId>
-					<artifactId>jboss-logging-spi</artifactId>
-				</exclusion>
-			</exclusions>
+			<groupId>de.elnarion.jndi</groupId>
+			<artifactId>naming-server</artifactId>
+			<version>0.1.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
