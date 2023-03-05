@@ -15,6 +15,8 @@ import org.slf4j.LoggerFactory;
 
 import com.arjuna.ats.jdbc.TransactionalDriver;
 
+import de.elnarion.jndi.server.Util;
+
 public class TransactionalConnectionProvider implements ConnectionProvider {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(TransactionalConnectionProvider.class);
@@ -38,10 +40,8 @@ public class TransactionalConnectionProvider implements ConnectionProvider {
 
 		try {
 			InitialContext initialContext = new InitialContext();
-			initialContext.createSubcontext("jdbc");
-			initialContext.bind(DATASOURCE_JNDI, dataSource);
+			Util.bind(initialContext, DATASOURCE_JNDI, dataSource);
 			LOGGER.info("Datasource bound");
-
 		} catch (NamingException e) {
 			throw new RuntimeException(e);
 		}
@@ -52,8 +52,6 @@ public class TransactionalConnectionProvider implements ConnectionProvider {
 		LOGGER.info("Getting Connection");
 
 		Properties properties = new Properties();
-		properties.setProperty(TransactionalDriver.userName, USERNAME);
-		properties.setProperty(TransactionalDriver.password, PASSWORD);
 		return transactionalDriver.connect("jdbc:arjuna:" + DATASOURCE_JNDI, properties);
 	}
 

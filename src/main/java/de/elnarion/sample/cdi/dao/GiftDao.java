@@ -19,10 +19,11 @@ import de.elnarion.sample.cdi.domain.Gift;
 public class GiftDao {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(GiftDao.class);
-	
+
 	/** The entity manager. */
 	@Inject
-	EntityManager entityManager;
+	@GiftDatabaseManager
+	private EntityManager giftEntityManager;
 
 	/**
 	 * All.
@@ -30,10 +31,10 @@ public class GiftDao {
 	 * @return the list
 	 */
 	public List<Gift> all() {
-		LOGGER.info("Transaction during all {}",entityManager.getTransaction());
-        return this.entityManager.createNamedQuery("all", Gift.class).getResultList();
-    }
-	
+		LOGGER.info("Transaction during all {}", giftEntityManager.getTransaction());
+		return this.giftEntityManager.createNamedQuery("all", Gift.class).getResultList();
+	}
+
 	/**
 	 * Save.
 	 *
@@ -41,10 +42,10 @@ public class GiftDao {
 	 */
 	@Transactional
 	public void save(Gift paramGift) {
-		LOGGER.info("Transaction during save {}",entityManager.getTransaction());
-		this.entityManager.persist(paramGift);
+		LOGGER.info("Transaction during save {}", giftEntityManager.getTransaction());
+		this.giftEntityManager.persist(paramGift);
 	}
-	
+
 	/**
 	 * Gets the by id.
 	 *
@@ -52,7 +53,7 @@ public class GiftDao {
 	 * @return the by id
 	 */
 	public Gift getById(Long paramId) {
-		LOGGER.info("Transaction during find {}",entityManager.getTransaction());
-		return this.entityManager.find(Gift.class, paramId);
+		LOGGER.info("Transaction during find {}", giftEntityManager.getTransaction());
+		return this.giftEntityManager.find(Gift.class, paramId);
 	}
 }

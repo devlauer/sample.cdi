@@ -62,8 +62,8 @@
 		</dependency>
 		<dependency>
 			<groupId>de.elnarion.jndi</groupId>
-			<artifactId>naming-server</artifactId>
-			<version>0.1.1</version>
+			<artifactId>jndi-provider</artifactId>
+			<version>1.0.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
